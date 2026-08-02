@@ -1,45 +1,36 @@
 # SakuraFont
 
-SakuraFont is a 64-bit SoundFont instrument plug-in with an original anime-inspired GUI.
+SakuraFont is an original anime/visual-novel-inspired SoundFont instrument built with JUCE and FluidSynth.
 
-## Included features
+## Included
 
-- VST3 instrument and standalone application targets
-- `.sf2` SoundFont loading
-- MIDI notes, velocity, pitch bend, controllers, and aftertouch
-- Bank and program selection
-- Gain, reverb, and chorus controls
-- Panic/all-notes-off button
-- DAW state recall for parameters and the selected SoundFont path
-- Original moonlit visual-novel-inspired vector interface
+- Windows 64-bit VST3 and standalone targets
+- GitHub Actions cloud build
+- `.sf2` file picker and drag-and-drop loading
+- Large playable on-screen keyboard
+- Volume and ADSR controls
+- Reverb and chorus
+- Bank and 128-program browser
+- Animated falling petals
+- Dark purple/blue original interface
+- Panic button and DAW state recall
 
-## Easiest build method
+No copyrighted character art or commercial SoundFont is included.
 
-Use `BUILD_WITH_GITHUB.md`. GitHub Actions builds the Windows VST3 on a cloud Windows machine, so the broken Windows PowerShell installation on your computer is not involved.
+## Build it on GitHub
 
-## Local developer build
+1. Create an empty GitHub repository.
+2. Upload **the contents of this folder**, including the hidden `.github` folder.
+3. Open the repository's **Actions** tab.
+4. Choose **Build Windows VST3**.
+5. Click **Run workflow**.
+6. When the run completes, open it and download the `SakuraFont-Windows-VST3` artifact.
+7. Extract the artifact and copy the complete `SakuraFont.vst3` folder to:
 
-Requirements:
+   `C:\Program Files\Common Files\VST3`
 
-- Visual Studio 2022 with Desktop development with C++
-- CMake 3.22+
-- Git
-- vcpkg with `fluidsynth:x64-windows` and `pkgconf:x64-windows`
+8. In Ableton Live, enable the VST3 system folder and rescan plug-ins.
 
-Configure and build from a Visual Studio Developer Command Prompt:
+## Important
 
-```cmd
-set PKG_CONFIG_PATH=C:/vcpkg/installed/x64-windows/lib/pkgconfig
-cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
-cmake --build build --config Release --parallel
-```
-
-The resulting bundle is normally under:
-
-```text
-build\SakuraFont_artefacts\Release\VST3\SakuraFont.vst3
-```
-
-## Licensing
-
-JUCE and FluidSynth are third-party dependencies with their own licenses. Review those licenses before distributing a commercial binary. No SoundFont or copyrighted anime artwork is included.
+GitHub may ask you to enable Actions the first time. The cloud build installs FluidSynth and includes its runtime DLL dependencies in the VST3 bundle.

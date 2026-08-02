@@ -1,4 +1,5 @@
 #pragma once
+
 #include <JuceHeader.h>
 #include <fluidsynth.h>
 #include <mutex>
@@ -21,7 +22,7 @@ public:
     bool acceptsMidi() const override { return true; }
     bool producesMidi() const override { return false; }
     bool isMidiEffect() const override { return false; }
-    double getTailLengthSeconds() const override { return 3.0; }
+    double getTailLengthSeconds() const override { return 8.0; }
 
     int getNumPrograms() override { return 1; }
     int getCurrentProgram() override { return 0; }
@@ -36,6 +37,8 @@ public:
     void selectPreset(int bank, int program);
     void panic();
     juce::String getLoadedFileName() const;
+    juce::MidiKeyboardState& getKeyboardState() noexcept { return keyboardState; }
+
     juce::AudioProcessorValueTreeState state;
 
 private:
@@ -51,6 +54,7 @@ private:
     int soundFontId = -1;
     juce::File loadedFile;
     double currentSampleRate = 44100.0;
+    juce::MidiKeyboardState keyboardState;
     mutable std::mutex synthMutex;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SakuraFontAudioProcessor)

@@ -1,0 +1,14 @@
+UPLOAD THESE ITEMS TO THE ROOT OF YOUR GITHUB REPOSITORY:
+
+.github
+Source
+CMakeLists.txt
+vcpkg.json
+README.md
+LICENSE.txt
+UPLOAD_TO_GITHUB.txt
+
+After upload, the workflow file must appear at:
+.github/workflows/build-windows-vst3.yml
+
+Then open Actions > Build Windows VST3 > Run workflow.

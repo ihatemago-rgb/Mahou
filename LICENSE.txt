@@ -1,2 +1,3 @@
-Project source generated as a starter implementation. Third-party dependencies retain their own licenses.
-No SoundFonts, characters, artwork, or third-party assets are included.
+SakuraFont project source is provided for personal and commercial modification.
+JUCE and FluidSynth remain governed by their respective licenses.
+No SoundFont files or third-party artwork are included.
