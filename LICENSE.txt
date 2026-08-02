@@ -1,0 +1,2 @@
+Project source generated as a starter implementation. Third-party dependencies retain their own licenses.
+No SoundFonts, characters, artwork, or third-party assets are included.
